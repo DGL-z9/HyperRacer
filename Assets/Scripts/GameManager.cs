@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    // 싱글턴
     private static GameManager instance;
-
     public static GameManager Instance
     {
         get
@@ -35,7 +35,12 @@ public class GameManager : MonoBehaviour
     private Queue<GameObject> roadPool = new Queue<GameObject>();
     private const int roadCount = 3;
     
+    // 도로 이동
     private List<GameObject> activeRoad = new List<GameObject>();
+    
+    // 상태
+    public enum State{Start, Play, End}
+    public State gameState { get; private set; } = State.Start;
     
     private void Awake()
     {

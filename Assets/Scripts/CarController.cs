@@ -22,6 +22,9 @@ public class CarController : MonoBehaviour
             if (gas <= 0) break;
             yield return new WaitForSeconds(1f);
         }
+        
+        // 게임 종료
+        GameManager.Instance.EndGame();
     }
 
     public void Move(float direction)
@@ -35,6 +38,7 @@ public class CarController : MonoBehaviour
         if (other.CompareTag("Gas"))
         {
             gas += 30;
+            other.gameObject.SetActive(false);
         }
     }
 }

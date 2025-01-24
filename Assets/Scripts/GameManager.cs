@@ -154,6 +154,7 @@ public class GameManager : MonoBehaviour
         {
             road = Instantiate(carPrefab, position, Quaternion.identity);
         }
+        
         // 가스 아이템 생성
         if (roadIndex > 0 && roadIndex % 2 == 0)
         {
